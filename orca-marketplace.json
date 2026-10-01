@@ -7,7 +7,7 @@
       "source": {
         "kind": "git",
         "url": "https://github.com/kvdecvlt/orca-russian-language.git",
-        "ref": "v1.0.0"
+        "ref": "v1.1.0"
       },
       "description": "Полная русская локализация интерфейса Orca.",
       "categories": ["languages"]

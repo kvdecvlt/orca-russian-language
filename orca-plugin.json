@@ -3,7 +3,7 @@
   "id": "russian-language",
   "publisher": "kvdecvlt",
   "name": "Orca Русский",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Полная русская локализация интерфейса Orca.",
   "repository": "https://github.com/kvdecvlt/orca-russian-language",
   "engines": { "orca": ">=1.4.0" },
