@@ -1,13 +1,12 @@
 {
-  "manifestVersion": 1,
+  "manifestVersion": 2,
   "id": "russian-language",
-  "publisher": "kvdecvlt",
   "name": "Orca Русский",
   "version": "1.2.0",
   "description": "Полная русская локализация интерфейса Orca.",
   "repository": "https://github.com/kvdecvlt/orca-russian-language",
+  "execution": "data",
   "engines": { "orca": ">=1.4.251" },
-  "pluginApi": 1,
   "contributes": {
     "languagePacks": [{ "locale": "ru-RU", "path": "locales/ru-RU.json" }]
   },

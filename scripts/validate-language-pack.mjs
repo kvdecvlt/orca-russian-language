@@ -28,16 +28,21 @@ const allowedPrefix = (i) => {
 const isPlainObject = (v) =>
   typeof v === 'object' && v !== null && !Array.isArray(v) && Object.getPrototypeOf(v) === Object.prototype;
 
+const EXECUTIONS = new Set(['data', 'declarative', 'sandboxed-ui', 'trusted-worker']);
+
 function validateManifest(m) {
   if (!isPlainObject(m)) return fail('orca-plugin.json: root must be an object');
-  if (m.manifestVersion !== 1) fail('orca-plugin.json: manifestVersion must be 1');
-  if (m.pluginApi !== 1) fail('orca-plugin.json: pluginApi must be 1');
-  for (const f of ['id', 'publisher']) {
-    if (typeof m[f] !== 'string' || !KEBAB.test(m[f]) || m[f].length > 64 || PROTO.has(m[f]))
-      fail(`orca-plugin.json: ${f} must be kebab-case (a-z, 0-9, dashes), <=64 chars`);
-  }
+  if (m.manifestVersion !== 2) fail('orca-plugin.json: manifestVersion must be 2');
+  if (!EXECUTIONS.has(m.execution)) fail('orca-plugin.json: execution must be data, declarative, sandboxed-ui or trusted-worker');
+  if (typeof m.publisher !== 'undefined' &&
+      (typeof m.publisher !== 'string' || !KEBAB.test(m.publisher) || m.publisher.length > 64 || PROTO.has(m.publisher)))
+    fail('orca-plugin.json: publisher must be kebab-case (a-z, 0-9, dashes), <=64 chars');
+  if (typeof m.id !== 'string' || !KEBAB.test(m.id) || m.id.length > 64 || PROTO.has(m.id))
+    fail('orca-plugin.json: id must be kebab-case (a-z, 0-9, dashes), <=64 chars');
   if (m.publisher === 'stablyai' || (typeof m.id === 'string' && m.id.startsWith('orca-')))
     fail('orca-plugin.json: id/publisher is a reserved stablyai identity');
+  if ((m.execution === 'data' || m.execution === 'declarative') && typeof m.pluginApi !== 'undefined')
+    fail('orca-plugin.json: pluginApi is not allowed for data and declarative plugins');
   if (typeof m.name !== 'string' || m.name.length < 1 || m.name.length > 256)
     fail('orca-plugin.json: name must be a string 1..256');
   if (typeof m.version !== 'string' || !SEMVER.test(m.version)) fail('orca-plugin.json: version must be semver x.y.z');
