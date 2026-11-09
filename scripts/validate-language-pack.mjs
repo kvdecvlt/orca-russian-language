@@ -73,7 +73,8 @@ function validateCatalog(catalogPath, label) {
     for (const key of Object.keys(s.node)) {
       const val = s.node[key];
       entries += 1;
-      if (entries > 20000) return fail(`${label}: catalog exceeds 20000 entries`);
+      // Orca 1.4.251 raised the plugin language-pack limit to 50 000 entries.
+      if (entries > 50000) return fail(`${label}: catalog exceeds 50000 entries`);
       if (key.length === 0 || key.length > 128 || PROTO.has(key) || key.includes('.') || [...key].some((c) => c.charCodeAt(0) <= 31))
         return fail(`${label}: catalog key "${key || '(empty)'}" is not safe`);
       const p = s.path ? `${s.path}.${key}` : key;

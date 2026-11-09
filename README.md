@@ -3,18 +3,18 @@
 Русская локализация интерфейса [Orca](https://github.com/stablyai/orca) как плагин языка.
 Покрывает практически весь UI: меню, трей, настройки, панели, диалоги.
 
-Актуально для Orca **1.4.218**: ключи сверены с официальным каталогом `en.json` этой версии.
+Актуально для Orca **1.4.251**: ключи сверены с каталогом этой версии. Каталог плагина покрывает больше 80% строк интерфейса, иначе Orca не даёт выбрать язык.
 
 ## Установка
 
 1. Settings → Plugins → Install → вкладка **Git URL**:
-   `https://github.com/kvdecvlt/orca-russian-language.git#v1.1.0`
+   `https://github.com/kvdecvlt/orca-russian-language.git#v1.2.0`
 2. Подтверди consent-диалог.
-3. Settings → Appearance → Language → выбери `ru-RU — kvdecvlt.russian-language`.
+3. Settings → Appearance → Language → выбери `ru-RU` (`kvdecvlt.russian-language`).
 4. Полностью перезапусти Orca.
 
-Тег фиксирует проверенную версию. Если нужен всегда последний `main` — замени
-`#v1.1.0` на `#main`.
+Тег фиксирует проверенную версию. Если нужен всегда последний `main`, замени
+`#v1.2.0` на `#main`.
 
 ## Установка из локальной папки
 
