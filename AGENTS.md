@@ -18,7 +18,7 @@
 | Путь | Назначение |
 | --- | --- |
 | `locales/ru-RU.json` | единственный источник текста плагина |
-| `orca-plugin.json` | манифест: id, версия, `engines.orca`, путь к каталогу |
+| `orca-plugin.json` | манифест формата 2: id, версия, `execution: data`, `engines.orca`, путь к каталогу |
 | `orca-marketplace.json` | запись маркетплейса, `source.ref` указывает на тег |
 | `scripts/validate-language-pack.mjs` | валидатор манифеста и каталога |
 | `README.md` | установка и заявленная версия Orca |
@@ -110,6 +110,8 @@
 - Полностью перезапустить Orca.
 - Установленная копия в `~/.config/orca/plugins/` не связана с рабочей папкой: правки в репозитории туда сами не попадают.
 - `~/.config/orca/plugins/kvdecvlt.russian-language/current` - это файл с хешем, а не каталог.
+- Быстрая проверка папки без UI: `/opt/stably-orca/resources/bin/orca-ide plugin validate .`.
+- Для установки из Git нужен `manifestVersion: 2`. Проверка релиза: `/opt/stably-orca/resources/bin/orca-ide plugin release-entry .` должен вернуть `ok: true`.
 - Проверка релизной установки: Settings → Plugins → Install → Git URL с тегом.
 
 ## Релиз
@@ -118,7 +120,8 @@
 2. Проверить `engines.orca`, при необходимости поднять минимальную версию.
 3. Обновить `source.ref` в `orca-marketplace.json` на новый тег.
 4. Обновить версию Orca и команду установки в `README.md`.
-5. Прогнать `node scripts/validate-language-pack.mjs`.
-6. Поставить тег `vX.Y.Z` и запушить его.
+5. Прогнать `node scripts/validate-language-pack.mjs` и `orca-ide plugin validate .`.
+6. Проверить `orca-ide plugin release-entry .`: должен вернуть `ok: true` с версией, коммитом и `contentHash`.
+7. Поставить тег `vX.Y.Z` и запушить его.
 
 Коммиты и теги создавать только по явной просьбе. Сообщения короткие, по-русски, без conventional commits.

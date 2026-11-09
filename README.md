@@ -22,9 +22,6 @@
 
 1. Settings → Plugins → **Development** → в поле пути укажи корень плагина
    (папка с `orca-plugin.json`) → **Add path**.
-   Вариант через обычную установку: Settings → Plugins → **Install** → вкладка
-   **Local folder** с тем же путём (Orca скопирует плагин, правки в папке после
-   этого не подхватятся).
 2. Подтверди consent и включи плагин.
-3. Settings → Appearance → Language → выбери `ru-RU — kvdecvlt.russian-language`.
+3. Settings → Appearance → Language → выбери `ru-RU` (`kvdecvlt.russian-language`).
 4. Полностью перезапусти Orca.
