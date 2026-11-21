@@ -8,13 +8,13 @@
 ## Установка
 
 1. Settings → Plugins → Install → вкладка **Git URL**:
-   `https://github.com/kvdecvlt/orca-russian-language.git#v1.3.0`
+   `https://github.com/kvdecvlt/orca-russian-language.git#v1.3.1`
 2. Подтверди consent-диалог.
 3. Settings → Appearance → Language → выбери `ru-RU` (`kvdecvlt.russian-language`).
 4. Полностью перезапусти Orca.
 
 Тег фиксирует проверенную версию. Если нужен всегда последний `main`, замени
-`#v1.3.0` на `#main`.
+`#v1.3.1` на `#main`.
 
 ## Установка из локальной папки
 
