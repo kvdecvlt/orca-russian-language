@@ -1,5 +1,5 @@
 {
-  "name": "Orca Русский",
+  "name": "Русский язык",
   "owner": "kvdecvlt",
   "plugins": [
     {
@@ -7,7 +7,7 @@
       "source": {
         "kind": "git",
         "url": "https://github.com/kvdecvlt/orca-russian-language.git",
-        "ref": "v1.3.1"
+        "ref": "v1.3.2"
       },
       "description": "Полная русская локализация интерфейса Orca.",
       "categories": [
